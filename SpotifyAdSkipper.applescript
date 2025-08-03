@@ -23,6 +23,18 @@ repeat
 					delay 3
 					
 					tell application "Spotify" to play
+					
+					delay 1 -- Give it a second to start
+					
+					-- Minimize the Spotify window
+					tell application "System Events"
+						tell process "Spotify"
+							try
+								set frontmost to true
+								set visible of window 1 to false -- This minimizes the window
+							end try
+						end tell
+					end tell
 				end if
 			end if
 		end tell
